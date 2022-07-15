@@ -8,6 +8,7 @@ RUN go mod download
 
 COPY *.go ./
 
+
 RUN go build -o /webserver
 
 EXPOSE 9999
