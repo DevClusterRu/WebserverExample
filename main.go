@@ -19,5 +19,5 @@ func main() {
 }
 
 func hnd(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, "Hello dear some !")
+	fmt.Fprint(w, "Hello dear some man !")
 }
