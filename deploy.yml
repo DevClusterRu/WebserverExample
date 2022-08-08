@@ -1,7 +1,7 @@
 version: '3.4'
 services:
   webserver:
-    image: webserver:latest
+    image: 355982936287.dkr.ecr.us-east-2.amazonaws.com/webserver
     #  volumes:
     #    - /var/run/docker.sock:/var/run/docker.sock:ro
     #    - /swarm-keys:/root/.ssh
@@ -13,6 +13,11 @@ services:
         order: start-first
       restart_policy:
         condition: on-failure
+    ports:
+      - 9999:9999
+    command: ["go", "run", "main.go"]
+
+
   #    placement:
   #      constraints:
   #        - node.role==manager
