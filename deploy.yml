@@ -1,18 +1,18 @@
-version: '3.3'
-
-webserver:
-  image: webserver:latest
-#  volumes:
-#    - /var/run/docker.sock:/var/run/docker.sock:ro
-#    - /swarm-keys:/root/.ssh
-  deploy:
-    replicas: 1
-    update_config:
-      parallelism: 1
-      delay: 1s
-      order: start-first
-    restart_policy:
-      condition: on-failure
-#    placement:
-#      constraints:
-#        - node.role==manager
+version: '3.4'
+services:
+  webserver:
+    image: webserver:latest
+    #  volumes:
+    #    - /var/run/docker.sock:/var/run/docker.sock:ro
+    #    - /swarm-keys:/root/.ssh
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 1s
+        order: start-first
+      restart_policy:
+        condition: on-failure
+  #    placement:
+  #      constraints:
+  #        - node.role==manager
