@@ -1,10 +1,7 @@
 version: '3.4'
 services:
-  webserver:
-    image: 355982936287.dkr.ecr.us-east-2.amazonaws.com/webserver
-    #  volumes:
-    #    - /var/run/docker.sock:/var/run/docker.sock:ro
-    #    - /swarm-keys:/root/.ssh
+  swarm:
+    image: parrots9/webserver
     deploy:
       replicas: 1
       update_config:
@@ -15,9 +12,4 @@ services:
         condition: on-failure
     ports:
       - 9999:9999
-    command: ["go", "run", "main.go"]
-
-
-  #    placement:
-  #      constraints:
-  #        - node.role==manager
+    command: ["/bin/main"]

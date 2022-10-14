@@ -9,7 +9,6 @@ import (
 func main() {
 
 	http.HandleFunc("/", hnd)
-	//http.HandleFunc("/export", csvExport.ExportListener)
 	log.Println("Starting webserver...")
 	err := http.ListenAndServe(":9999", nil)
 	if err != nil {
@@ -19,5 +18,5 @@ func main() {
 }
 
 func hnd(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, "Hi !")
+	fmt.Fprint(w, "Hi!")
 }
