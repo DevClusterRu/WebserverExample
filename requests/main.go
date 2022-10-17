@@ -8,23 +8,27 @@ import (
 	"net/http"
 )
 
+func SendResponse(v interface{}, w http.ResponseWriter) {
+	js, _ := json.Marshal(v)
+	fmt.Fprint(w, js)
+}
+
 func getMD5Hash(text string) string {
 	hash := md5.Sum([]byte(text))
+
 	return hex.EncodeToString(hash[:])
 }
 
 func GetToken(w http.ResponseWriter, req *http.Request) {
-	resp := GetTokenResponse{1234, getMD5Hash("123")}
-	js, _ := json.Marshal(resp)
-	fmt.Fprint(w, js)
+	SendResponse(GetTokenResponse{1234, getMD5Hash("123")}, w)
 }
 
 func GetRates(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, "Hi!")
+	SendResponse(GetRatesResponse{1.234}, w)
 }
 func GetBalance(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, "Hi!")
+	SendResponse(GetTokenResponse{2134, getMD5Hash("123")}, w)
 }
 func SetTransaction(w http.ResponseWriter, req *http.Request) {
-	fmt.Fprint(w, "Hi!")
+	SendResponse(SetTransactionResponse{0, ""}, w)
 }
