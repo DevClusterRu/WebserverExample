@@ -10,7 +10,7 @@ import (
 
 func SendResponse(v interface{}, w http.ResponseWriter) {
 	js, _ := json.Marshal(v)
-	fmt.Fprint(w, js)
+	fmt.Fprint(w, string(js))
 }
 
 func getMD5Hash(text string) string {
