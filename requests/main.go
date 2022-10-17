@@ -27,7 +27,7 @@ func GetRates(w http.ResponseWriter, req *http.Request) {
 	SendResponse(GetRatesResponse{1.234}, w)
 }
 func GetBalance(w http.ResponseWriter, req *http.Request) {
-	SendResponse(GetTokenResponse{2134, getMD5Hash("123")}, w)
+	SendResponse(GetBalanceResponse{123}, w)
 }
 func SetTransaction(w http.ResponseWriter, req *http.Request) {
 	SendResponse(SetTransactionResponse{0, ""}, w)
