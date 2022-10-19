@@ -4,9 +4,20 @@ import (
 	"Webserver/requests"
 	"log"
 	"net/http"
+	"os"
+	"time"
 )
 
 func main() {
+
+	if len(os.Args) > 1 {
+		if os.Args[1] == "-n" {
+			for {
+				print(".")
+				time.Sleep(1 * time.Second)
+			}
+		}
+	}
 
 	http.HandleFunc("/getToken", requests.GetToken)
 	http.HandleFunc("/getRates", requests.GetRates)
